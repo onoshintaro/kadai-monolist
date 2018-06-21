@@ -38,6 +38,7 @@ class ItemsController extends Controller
         ]);
     }
     
+    
     public function show($id)
     {
       $item = Item::find($id);

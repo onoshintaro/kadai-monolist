@@ -8,7 +8,11 @@
                             <img src="{{ $item->image_url }}" alt="">
                         </div>
                         <div class="panel-body">
-                            <p class="item-title"><a href="{{ route('items.show', $item->id) }}">{{ $item->name }}</a></p>
+                            @if ($item->id)
+                                <p class="item-title"><a href="{{ route('items.show', $item->id) }}">{{ $item->name }}</a></p>
+                            @else
+                                <p class="text-center"><a href="{{ $item->url }}" target="_blank">{{ $item->name }}</a></p>
+                            @endif                            
                             </div class="buttons text-center">
                                 @if (Auth::check())
                                     @include('items.want_button', ['item' => $item])
